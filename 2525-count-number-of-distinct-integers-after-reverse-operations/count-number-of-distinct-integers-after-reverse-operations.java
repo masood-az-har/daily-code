@@ -1,26 +1,23 @@
 class Solution {
     public int countDistinctIntegers(int[] nums) {
-        int n = nums.length;
-        int ptr = nums.length;
-        nums = Arrays.copyOf(nums,nums.length*2);
-        for(int i=0;i<n;i++){
-            int element = nums[i];
-            nums[ptr] = reverse(element);
-            ptr++;
+        HashSet<Integer> set = new HashSet<>();
+
+        for (int x : nums) {
+            set.add(x);
+            set.add(reverse(x));
         }
 
-        int [] distinct = Arrays.stream(nums).distinct().toArray();
-        return distinct.length;
-        
+        return set.size();
     }
 
-    public static int reverse(int x){
-        int r = 0;
-        while(x != 0){
-            int rem = x % 10;
-            r = r*10+rem;
+    private int reverse(int x) {
+        int rev = 0;
+
+        while (x != 0) {
+            rev = rev * 10 + x % 10;
             x /= 10;
         }
-        return r;
+
+        return rev;
     }
 }
