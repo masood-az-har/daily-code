@@ -2,8 +2,8 @@ class Solution {
     public String reverseVowels(String s) {
 
         char [] arr = s.toCharArray();
-        int last = s.length()-1;
-        for(int start = 0;start<s.length();start++){
+        int last = arr.length-1;
+        for(int start = 0;start<last;start++){
             if(isVowel(arr[start])){
                 while(last >= start){
                     if(isVowel(arr[last])){
