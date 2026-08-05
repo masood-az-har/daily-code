@@ -1,11 +1,13 @@
 class Solution {
     public List<Integer> findMissingElements(int[] nums) {
-        int min = Arrays.stream(nums).min().getAsInt();
-        int max = Arrays.stream(nums).max().getAsInt();
+        int min = Integer.MAX_VALUE;
+        int max = Integer.MIN_VALUE;
         HashSet<Integer> hs = new HashSet<>();
 
         for(int x : nums){
             hs.add(x);
+            min = Math.min(min,x);
+            max = Math.max(max,x);
         }
         ArrayList<Integer> al = new ArrayList<>();
 
