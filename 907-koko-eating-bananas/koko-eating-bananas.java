@@ -13,7 +13,7 @@ class Solution {
             long hours = 0;
 
             for(int i=0;i<piles.length;i++){
-                hours = hours+(piles[i]-1)/mid+1;
+                hours = hours+(piles[i]-1L)/mid+1;
             }
 
             if(hours<=h){
